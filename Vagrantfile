@@ -39,8 +39,9 @@ Vagrant.configure(2) do |config|
     name: 'hooks'
 
   # run all services on every vagrant up / reload
-  config.vm.provision 'shell',
-    path: 'services/run_services.sh',
-    name: 'services',
-    run: 'always'
+  # example below:
+  # config.vm.provision 'shell',
+  #   path: 'services/run_services.sh',
+  #   name: 'services',
+  #   run: 'always'
 end
