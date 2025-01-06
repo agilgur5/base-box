@@ -14,11 +14,11 @@ Vagrant.configure(2) do |config|
 
   # create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network 'private_network', ip: '12.12.12.12'
+  config.vm.network 'private_network', ip: '192.168.33.10'
 
   # customize VirtualBox provider
   config.vm.provider 'virtualbox' do |vb|
-    vb.memory = '512'
+    vb.memory = '1024'
   end
 
   # sync the codebase to /vagrant
@@ -28,8 +28,19 @@ Vagrant.configure(2) do |config|
 
   # provision the image
   config.vm.provision 'shell', path: 'provision.sh', name: 'provision'
+  # set version control standards
+  config.vm.provision 'shell',
+    path: 'committing/standards.sh',
+    name: 'version_control',
+    privileged: false # run as vagrant user, not root
+  # install + set version control hooks
+  config.vm.provision 'shell',
+    path: 'committing/install_hooks.sh',
+    name: 'hooks'
 
   # run all services on every vagrant up / reload
-  config.vm.provision 'shell', path: 'run_services.sh', name: 'services',
+  config.vm.provision 'shell',
+    path: 'services/run_services.sh',
+    name: 'services',
     run: 'always'
 end
