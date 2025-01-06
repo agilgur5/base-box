@@ -1,5 +1,24 @@
 # base-box
-My old Vagrant base box back from ~2015ish, stored here for archival purposes
+
+My old Vagrant base box back from ~2015ish, stored here for archival purposes.
+
+Vaguely around 2015, I used Vagrant quite heavily for cross-platform development environments supporting dev teams on Linux, macOS (OS X at the time), and Windows.
+By having a standardized, virtualized dev env, my teams could reliably reproduce anything in any language and use a consistent OS for everything (Ubuntu 14.04 at the time).
+
+I used Vagrant before Docker but even with Docker, there was still some difficulty in installing it cross-platform at the time as well as getting networking and filesystems configured consistently.
+This base box helped standardize the usage and configuration of Docker later on.
+This was also well before [devcontainers](https://github.com/devcontainers/spec), so the rest of the VM was also useful to install and configure other dev tools surrounding each service's container, such as:
+
+- [`vagrant-fsnotify`](https://github.com/adrienkohlbecker/vagrant-fsnotify) for cross-platform FS notifications to be able to watch filesystems
+- [`sman`](https://github.com/tokozedg/sman) for organizing and running collections of scripts
+- Git hooks with [`overcommit`](https://github.com/sds/overcommit), Git defaults, etc
+- Language runtimes and package managers like Python + `pip`, Node.js + NPM, Ruby, etc
+- Static analyzers and linting tools like [`shellcheck`](https://github.com/koalaman/shellcheck), [`rubocop`](https://github.com/rubocop/rubocop), [`flake8`](https://github.com/PyCQA/flake8), [`standard`](https://github.com/standard/standard) [`mdl`](https://github.com/markdownlint/markdownlint), etc
+- Deployment tools like the AWS CLI, Terraform, etc
+
+I used variations of this base box in my work for [LTLMoPWeb3D](https://github.com/VerifiableRobotics/LTLMoPWeb3D) ([Vagrantfile permalink](https://github.com/VerifiableRobotics/LTLMoPWeb3D/blob/c6479b51cb147f58ec2e30aeae4aa56aba18d5a6/Vagrantfile), [initial usage](https://github.com/VerifiableRobotics/LTLMoPWeb3D/commit/3ee4645aa0d0c2778253bf73ba633db8caac3f09)), [PDFSign.js](https://github.com/agilgur5/PDFSign.js), [Yorango](https://github.com/Yorango), [Maidbot](maidbot.com), etc.
+
+Below is what the rest of the initial README for the dev env would usually contain.
 
 ## Installation
 
