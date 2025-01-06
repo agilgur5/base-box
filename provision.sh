@@ -11,5 +11,23 @@ apt-get install -qqy docker-engine;
 usermod -aG docker vagrant;
 
 echo 'Installing Docker-Compose...';
-curl -sSL https://github.com/docker/compose/releases/download/1.6.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose;
+baseurl='https://github.com/docker/compose/releases/download/1.6.0/';
+suffix="docker-compose-$(uname -s)-$(uname -m)";
+curl -sSL "$baseurl$suffix" > /usr/local/bin/docker-compose;
 chmod +x /usr/local/bin/docker-compose;
+
+echo 'Installing Overcommit...';
+apt-get install -qqy ruby-full > /dev/null;
+gem install overcommit -- --silent > /dev/null;
+# hook dependencies
+apt-get install -qqy shellcheck > /dev/null;
+gem install rubocop -- --silent > /dev/null;
+# install nginx for validating configs only, stop service and disable autostart
+apt-get install -qqy nginx  > /dev/null && \
+  sudo service nginx stop > /dev/null && \
+  sudo update-rc.d -f nginx disable > /dev/null;
+# install node + npm for standard linting
+curl -sSL https://deb.nodesource.com/setup_5.x | sudo -E bash - > /dev/null && \
+  apt-get update -qq > /dev/null &&
+  apt-get install -qqy --no-install-recommends nodejs > /dev/null &&
+  npm install -qqg standard > /dev/null;

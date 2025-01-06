@@ -1,15 +1,9 @@
-#!/bin/sh
+#!/bin/bash
+# bash is necessary for pushd/popd
 
-# store initial location to later return to
-INITIAL_LOCATION=$(pwd);
-
-echo 'Running back end services...';
-cd /vagrant/app
-docker-compose up -d;
-
-echo 'Running front end services...';
-cd /vagrant/static;
+echo 'Running all services...';
+pushd /vagrant; # store initial location to later return to
 docker-compose up -d;
 
 # return to initial location
-cd $INITIAL_LOCATION;
+popd;
