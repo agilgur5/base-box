@@ -4,5 +4,8 @@ git config --global core.autocrlf input; # line endings
 git config --global pull.rebase true; # rebase pull
 git config --global core.whitespace tab_in_indent # mark tabs red
 
+#
+# example below:
 # default template for commit messages -- must be absolute path
 # git config --global commit.template /vagrant/committing/template.txt;
+#

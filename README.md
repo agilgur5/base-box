@@ -18,30 +18,66 @@ This was also well before [devcontainers](https://github.com/devcontainers/spec)
 
 I used variations of this base box in my work for [LTLMoPWeb3D](https://github.com/VerifiableRobotics/LTLMoPWeb3D) ([Vagrantfile permalink](https://github.com/VerifiableRobotics/LTLMoPWeb3D/blob/c6479b51cb147f58ec2e30aeae4aa56aba18d5a6/Vagrantfile), [initial usage](https://github.com/VerifiableRobotics/LTLMoPWeb3D/commit/3ee4645aa0d0c2778253bf73ba633db8caac3f09)), [PDFSign.js](https://github.com/agilgur5/PDFSign.js), [Yorango](https://github.com/Yorango), [Maidbot](maidbot.com), etc.
 
-Below is what the rest of the initial README for the dev env would usually contain.
+Below is an example of what the rest of the initial README for the dev env would usually contain.
+
+## Table of Contents
+
+I. [Installation](#installation) <br />
+II. [Development](services/) <br />
+III. [Committing Guidelines](committing/) <br />
+IV. [Further Reading](#further-reading)
 
 ## Installation
 
-1. `git clone` this repository
+### Prerequisites
+
+1. Create a fork of this repo if you have not already
+1. `git clone` your fork
 1. Install [Vagrant](https://www.vagrantup.com/downloads.html)
+
+<!--- example below:
+
+1. Set a few environment variables to allow for automated decryption and Git repo configuration:
+   - `DECRYPT_PASSWORD` to the password given to decrypt files (ask if you do not yet know it)
+   - `GITLAB_EMAIL` to the email associated with your GitLab account
+   - `GITLAB_USERNAME` to the username associated with your GitLab account
+
+-->
+
+**Note for Windows users**: On Windows, on top of needing `Git` and `Vagrant`, you will also need a Bash-compatible shell, such as `Cygwin` or `Powershell`.
+
+### Getting Started
+
 1. From the root directory of the repository, create a VM with `vagrant up`.
    This may take several minutes as this command does quite a few things:
    - Installs VirtualBox if you do not have it already
      - This will **ask for your root password**, so be prepared to type it in
    - Configures networking, memory, and shared folders for the virtual machine (see [Vagrantfile](Vagrantfile))
    - Runs a [provisioning script](provision.sh) to install several pieces of necessary software on the VM
-   - Configures [version control hooks](committing/install_hooks.sh) and [standards](committing/standards.sh)
-   - [Runs all services](run_services.sh) for back end and front end, building them if they have not yet been created
+   - Configures [version control standards](committing/)
+   - [Runs all services](run_services.sh), building them if they have not yet been created
+
+   <!-- example below:
+
+   - [Decrypts secrets](init/decrypt_files.sh)
+
+   -->
+
 1. Connect to <http://192.168.33.10>
 
 ## Using the Environment
 
+1. Boot the VM with `vagrant up`
 1. Launch a secure shell into the VM with `vagrant ssh`
-1. Change directories into the the shared folder (`cd /vagrant`)
 1. Use `git` as you normally would, just from _inside_ the environment
+
+<!--- example below:
+
+1. Provision a running VM with `vagrant provision`
+  - You will only need to do this if any environment-related files (the ones listed above) change as the result of a commit
+
+-->
 
 ## Further Reading
 
 1. [Vagrant Docs](https://docs.vagrantup.com/)
-1. [Docker Docs](https://docs.docker.com/)
-    - Read the Engine and Compose CLIs

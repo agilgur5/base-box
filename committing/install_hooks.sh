@@ -27,9 +27,11 @@ apt-get install -qqy nginx  > /dev/null && \
   sudo service nginx stop > /dev/null && \
   sudo update-rc.d -f nginx disable > /dev/null;
 
-# install and sign the hooks themselves
+#
 # example below:
+# install and sign the hooks themselves
 # overcommit --install;
 # overcommit --sign;
+#
 
 popd;

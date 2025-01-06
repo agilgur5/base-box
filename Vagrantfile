@@ -38,10 +38,33 @@ Vagrant.configure(2) do |config|
     path: 'committing/install_hooks.sh',
     name: 'hooks'
 
-  # run all services on every vagrant up / reload
+  # only run the initialization on the first 'vagrant up'
+  # pass environment variables to these provisioners
+  if Dir.glob(File.dirname(__FILE__) + '/.vagrant/machines/default/*/id').empty?
+    #
+    # example below:
+    # set version control default preferences
+    # config.vm.provision 'shell',
+    #   path: 'committing/preferences.sh',
+    #   privileged: false,
+    #   env: {
+    #     GITLAB_EMAIL: ENV['GITLAB_EMAIL'],
+    #     GITLAB_USERNAME: ENV['GITLAB_USERNAME']
+    #   }
+    # decrypt secrets
+    # config.vm.provision 'shell',
+    #   path: 'init/decrypt_files.sh',
+    #   name: 'decrypt',
+    #   env: { DECRYPT_PASSWORD: ENV['DECRYPT_PASSWORD'] }
+    #
+  end
+
+  #
   # example below:
+  # run all services on every vagrant up / reload
   # config.vm.provision 'shell',
   #   path: 'services/run_services.sh',
   #   name: 'services',
   #   run: 'always'
+  #
 end

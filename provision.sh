@@ -15,6 +15,9 @@ suffix="docker-compose-$(uname -s)-$(uname -m)";
 curl -sSL "$baseurl$suffix" > /usr/local/bin/docker-compose;
 chmod +x /usr/local/bin/docker-compose;
 
-echo 'Installing AWS CLIs + SDKs...';
-apt-get install -qqy python-pip > /dev/null;
-pip -q install awscli awsebcli boto > /dev/null;
+#
+# example below:
+# echo 'Installing AWS CLIs + SDKs...';
+# apt-get install -qqy python-pip > /dev/null;
+# pip -q install awscli awsebcli boto > /dev/null;
+#
