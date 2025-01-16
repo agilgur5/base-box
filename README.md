@@ -16,7 +16,7 @@ This was also well before [devcontainers](https://github.com/devcontainers/spec)
 - Static analyzers and linting tools like [`shellcheck`](https://github.com/koalaman/shellcheck), [`rubocop`](https://github.com/rubocop/rubocop), [`flake8`](https://github.com/PyCQA/flake8), [`standard`](https://github.com/standard/standard) [`mdl`](https://github.com/markdownlint/markdownlint), etc
 - Deployment tools like the AWS CLI, Terraform, etc
 
-I used variations of this base box in my work for [LTLMoPWeb3D](https://github.com/VerifiableRobotics/LTLMoPWeb3D) ([Vagrantfile permalink](https://github.com/VerifiableRobotics/LTLMoPWeb3D/blob/c6479b51cb147f58ec2e30aeae4aa56aba18d5a6/Vagrantfile), [initial usage](https://github.com/VerifiableRobotics/LTLMoPWeb3D/commit/3ee4645aa0d0c2778253bf73ba633db8caac3f09)), [PDFSign.js](https://github.com/agilgur5/PDFSign.js), [Yorango](https://github.com/Yorango), [Maidbot](maidbot.com), etc.
+I used variations of this base box in my work for [LTLMoPWeb3D](https://github.com/VerifiableRobotics/LTLMoPWeb3D) ([Vagrantfile permalink](https://github.com/VerifiableRobotics/LTLMoPWeb3D/blob/c6479b51cb147f58ec2e30aeae4aa56aba18d5a6/Vagrantfile), [initial usage](https://github.com/VerifiableRobotics/LTLMoPWeb3D/commit/3ee4645aa0d0c2778253bf73ba633db8caac3f09)), [PDFSign.js](https://github.com/agilgur5/PDFSign.js), [Yorango](https://github.com/Yorango), [Maidbot](https://maidbot.com), etc.
 
 Below is an example of what the rest of the initial README for the dev env would usually contain.
 
