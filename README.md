@@ -55,10 +55,10 @@ IV. [Further Reading](#further-reading)
    - Configures networking, memory, and shared folders for the virtual machine (see [Vagrantfile](Vagrantfile))
    - Runs a [provisioning script](provision.sh) to install several pieces of necessary software on the VM
    - Configures [version control standards](committing/)
-   - [Runs all services](run_services.sh), building them if they have not yet been created
 
    <!-- example below:
 
+   - [Runs all services](services/run_services.sh), building them if they have not yet been created
    - [Decrypts secrets](init/decrypt_files.sh)
 
    -->

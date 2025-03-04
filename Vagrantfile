@@ -27,7 +27,9 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder './', '/vagrant', type: 'nfs', fsnotify: true
 
   # provision the image
-  config.vm.provision 'shell', path: 'provision.sh', name: 'provision'
+  config.vm.provision 'shell',
+    path: 'provision.sh',
+    name: 'provision'
   # set version control standards
   config.vm.provision 'shell',
     path: 'committing/standards.sh',
