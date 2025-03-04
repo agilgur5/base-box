@@ -1,11 +1,11 @@
 # base-box
 
-My old Vagrant base box back from ~2015ish, stored here for archival purposes.
+My old [Vagrant](https://github.com/hashicorp/vagrant) base box back from ~2015ish, stored here for archival purposes.
 
 Vaguely around 2015, I used Vagrant quite heavily for cross-platform development environments supporting dev teams on Linux, macOS (OS X at the time), and Windows.
 By having a standardized, virtualized dev env, my teams could reliably reproduce anything in any language and use a consistent OS for everything (Ubuntu 14.04 at the time).
 
-I used Vagrant before Docker but even with Docker, there was still some difficulty in installing it cross-platform at the time as well as getting networking and filesystems configured consistently.
+I used Vagrant before Docker but even with Docker, there was still some difficulty in installing it cross-platform at the time as well as getting networking and filesystems configured consistently (this was before [Docker Desktop](https://docs.docker.com/desktop/), formerly Docker for Mac/Windows, formerly [Docker Toolbox](https://github.com/docker-archive/toolbox)).
 This base box helped standardize the usage and configuration of Docker later on.
 This was also well before [devcontainers](https://github.com/devcontainers/spec), so the rest of the VM was also useful to install and configure other dev tools surrounding each service's container, such as:
 
